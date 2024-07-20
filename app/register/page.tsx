@@ -15,23 +15,22 @@ export default function Register() {
   }, []);
 
   const checkData = async () => {
-    let call = fetch("/api/accounts", {
-      method: "post",
-      body: JSON.stringify({
-        type: "register",
-        email: email,
-        password: password,
-        name: name,
-      }),
-    });
-    let res = call.then((resp) => resp);
-    if (res) {
-      localStorage.setItem("logged_in", "true");
-      localStorage.setItem("name", name);
-      localStorage.setItem("email", email);
-      localStorage.setItem("points", "0");
+    let call = await fetch(
+      `${process.env.NEXT_PUBLIC_backend_url}/auth/register`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+          password: password,
+          name: name,
+        }),
+      }
+    ).then((resp) => resp.json());
+    if (call.data) {
+      localStorage.setItem("data", JSON.stringify(call.data));
       router.push("/dashboard");
     } else {
+      alert(`Error due to ${call.error}`);
       setError(true);
     }
   };
