@@ -24,7 +24,7 @@ export const carList = [
       points: 350,
     },
     {
-      imgUrl: ' https://cdn.dribbble.com/users/472667/screenshots/5757868/electric-car-icon.png',
+      imgUrl: 'https://cdn.dribbble.com/users/472667/screenshots/5757868/electric-car-icon.png',
       service: 'Vendor Electric Car ( High Range )',
       multiplier: 1.25,
       points: 450
