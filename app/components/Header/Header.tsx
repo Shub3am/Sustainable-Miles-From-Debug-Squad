@@ -1,18 +1,9 @@
 "use client";
 
 import Image from "next/image";
-
-import { useEffect, useState } from "react";
+import electric_car from "./electric-car.png";
 
 export default function Header() {
-  const [data, setData] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedData = localStorage.getItem("data");
-      setData(storedData);
-    }
-  }, []);
 
   return (
     <header className="shadow">
@@ -58,7 +49,7 @@ export default function Header() {
                   Dashboard
                 </button>
               </a>
-              {data && (
+              {localStorage["data"] && (
                 <button
                   onClick={() => {
                     localStorage.clear();
