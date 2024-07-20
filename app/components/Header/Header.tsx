@@ -1,13 +1,26 @@
+"use client";
+
 import Image from "next/image";
-import electric_car from "./electric-car.png";
+
+import { useEffect, useState } from "react";
+
 export default function Header() {
+  const [data, setData] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedData = localStorage.getItem("data");
+      setData(storedData);
+    }
+  }, []);
+
   return (
     <header className="shadow">
       <div className="relative flex max-w-screen-xl flex-col overflow-hidden px-2 py-2 md:mx-auto md:flex-row md:items-center">
         <a
           href="/"
           className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
-          <Image alt="logo" src={electric_car} width={50} height={50} />
+          <Image alt="logo" src="/electric-car.png" width={50} height={50} />
           <span className="ml-3 text-xl">Sustainable Miles</span>
         </a>
         <input type="checkbox" className="peer hidden" id="navbar-open" />
@@ -45,6 +58,16 @@ export default function Header() {
                   Dashboard
                 </button>
               </a>
+              {data && (
+                <button
+                  onClick={() => {
+                    localStorage.clear();
+                    location.reload();
+                  }}
+                  className="ml-2 rounded border-theme-primary px-6 py-2 font-medium hover:bg-theme-primary-hover transition-colors bg-theme-primary text-white">
+                  Logout
+                </button>
+              )}
             </li>
           </ul>
         </nav>

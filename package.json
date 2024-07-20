@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@turf/turf": "^7.0.0",
     "mapbox-gl": "^3.5.2",
     "next": "14.2.5",
     "next-video": "^1.1.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "styled-components": "^6.1.12",
+    "tailwind-styled-components": "^2.2.0"
   },
   "devDependencies": {
     "@types/node": "^20",
