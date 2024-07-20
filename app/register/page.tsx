@@ -1,7 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import RenewableEnergy from "./RenewableEnergy.mp4";
 
 export default function Register() {
   const router = useRouter();
@@ -40,7 +39,7 @@ export default function Register() {
     <div className="relative">
       <video
         className="absolute inset-0 object-cover w-full h-full"
-        src={RenewableEnergy}
+        src={"/RenewableEnergy.mp4"}
         autoPlay
         loop
         muted
@@ -72,8 +71,7 @@ export default function Register() {
                     ) : null}
                     <label
                       htmlFor="firstName"
-                      className="inline-block mb-1 font-medium"
-                    >
+                      className="inline-block mb-1 font-medium">
                       Full Name
                     </label>
                     <input
@@ -92,8 +90,7 @@ export default function Register() {
                   <div className="mb-1 sm:mb-2">
                     <label
                       htmlFor="email"
-                      className="inline-block mb-1 font-medium"
-                    >
+                      className="inline-block mb-1 font-medium">
                       E-mail
                     </label>
                     <input
@@ -112,8 +109,7 @@ export default function Register() {
                   <div className="mb-1 sm:mb-2">
                     <label
                       htmlFor="password"
-                      className="inline-block mb-1 font-medium"
-                    >
+                      className="inline-block mb-1 font-medium">
                       Password
                     </label>
                     <input
@@ -140,8 +136,7 @@ export default function Register() {
                         } else {
                           setError(true);
                         }
-                      }}
-                    >
+                      }}>
                       Register
                     </button>
                   </div>
